@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Master Admin — Restaurant POS Platform</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div class="app-shell">
+  <div class="sidebar">
+    <div class="brand">POS Platform</div>
+    <div class="tenant">Master Admin</div>
+    <nav>
+      <button class="navlink active" data-view="dashboard">Dashboard</button>
+      <button class="navlink" data-view="restaurants">Restaurants</button>
+      <button class="navlink" onclick="Auth.logout()">Log out</button>
+    </nav>
+  </div>
+  <div class="main">
+    <div id="view-dashboard">
+      <div class="topbar"><h1>Platform dashboard</h1></div>
+      <div class="stat-grid" id="stats"></div>
+      <div class="card">
+        <h3 style="margin-top:0;">Top restaurants by orders</h3>
+        <table><thead><tr><th>Restaurant</th><th>Orders</th></tr></thead><tbody id="top-restaurants"></tbody></table>
+      </div>
+    </div>
+
+    <div id="view-restaurants" style="display:none;">
+      <div class="topbar">
+        <h1>Restaurants</h1>
+        <button onclick="openCreateModal()">+ New restaurant</button>
+      </div>
+      <div class="card">
+        <table>
+          <thead><tr><th>Name</th><th>Slug</th><th>Plan</th><th>Status</th><th>Orders</th><th>Staff</th><th>Actions</th></tr></thead>
+          <tbody id="restaurants-table"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="create-modal" style="display:none;">
+  <div class="modal">
+    <h3 style="margin-top:0;">New restaurant client</h3>
+    <form id="create-form">
+      <div class="field"><label>Restaurant name</label><input id="c-name" required /></div>
+      <div class="field"><label>Owner full name</label><input id="c-owner-name" required /></div>
+      <div class="field"><label>Owner email (used to log in)</label><input type="email" id="c-owner-email" required /></div>
+      <div class="row" style="gap:12px;">
+        <div class="field" style="flex:1;"><label>Plan</label>
+          <select id="c-plan"><option value="trial">Trial</option><option value="basic">Basic</option><option value="pro">Pro</option></select>
+        </div>
+        <div class="field" style="flex:1;"><label>Currency</label><input id="c-currency" value="USD" /></div>
+      </div>
+      <div class="field"><label>Phone (optional)</label><input id="c-phone" /></div>
+      <div class="field"><label>Address (optional)</label><input id="c-address" /></div>
+      <div class="row" style="justify-content:flex-end;">
+        <button type="button" class="secondary" onclick="closeCreateModal()">Cancel</button>
+        <button type="submit">Create restaurant</button>
+      </div>
+      <div class="error-text" id="create-error" style="display:none;"></div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="credentials-modal" style="display:none;">
+  <div class="modal">
+    <h3 style="margin-top:0;">Restaurant created</h3>
+    <p>Share these login details with the restaurant owner. The temporary password is shown only once.</p>
+    <div class="card" id="credentials-body" style="background:#f4f5f7;"></div>
+    <div class="row" style="justify-content:flex-end;margin-top:14px;">
+      <button onclick="document.getElementById('credentials-modal').style.display='none'">Done</button>
+    </div>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/api.js"></script>
+<script src="/js/master.js"></script>
+</body>
+</html>

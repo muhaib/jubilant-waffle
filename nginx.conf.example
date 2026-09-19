@@ -1,0 +1,30 @@
+# Example Nginx server block for the Hostinger VPS.
+# Copy to /etc/nginx/sites-available/restaurant-pos, adjust the domain and
+# paths, then: ln -s /etc/nginx/sites-available/restaurant-pos /etc/nginx/sites-enabled/
+# and reload with: sudo nginx -t && sudo systemctl reload nginx
+#
+# Run certbot afterwards to add the HTTPS server block automatically:
+#   sudo certbot --nginx -d pos.yourdomain.com
+
+server {
+    listen 80;
+    server_name pos.yourdomain.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+
+        # Required for Socket.IO's WebSocket upgrade to work through the proxy.
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_read_timeout 60s;
+    }
+
+    client_max_body_size 5m;
+}

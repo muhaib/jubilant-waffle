@@ -1,0 +1,10 @@
+node_modules/
+public/uploads/
+data/*.db
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm
+.env
+*.log
+npm-debug.log*
+.DS_Store
