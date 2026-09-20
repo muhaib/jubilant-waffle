@@ -1,0 +1,61 @@
+/* ==========================================================================
+   Charts. Marks are thin, the grid is recessive, and all text wears ink
+   tokens rather than the series colour — the mark beside a label carries
+   identity, the label itself stays readable.
+   ========================================================================== */
+
+.chart {
+  position: relative;
+  width: 100%;
+}
+.chart svg { display: block; width: 100%; overflow: visible; }
+
+.chart .grid-line { stroke: var(--ink-200); stroke-width: 1; }
+.chart .axis-line { stroke: var(--ink-300); stroke-width: 1; }
+.chart .axis-text {
+  font-family: var(--font-sans); font-size: 11px; fill: var(--ink-500);
+  font-variant-numeric: tabular-nums;
+}
+.chart .series-line { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.chart .series-area { stroke: none; }
+.chart .point {
+  stroke: var(--white); stroke-width: 2;   /* 2px surface ring on overlapping marks */
+}
+.chart .bar { rx: 4; ry: 4; }              /* 4px rounded data-ends */
+.chart .crosshair { stroke: var(--ink-400); stroke-width: 1; stroke-dasharray: 3 3; }
+.chart .hit { fill: transparent; cursor: crosshair; }
+.chart .direct-label {
+  font-family: var(--font-sans); font-size: 11px; font-weight: 600;
+  fill: var(--ink-700); font-variant-numeric: tabular-nums;
+}
+
+.chart-legend {
+  display: flex; flex-wrap: wrap; gap: var(--s-4);
+  margin-bottom: var(--s-4); font-size: var(--t-xs); color: var(--ink-600);
+}
+.chart-legend .key { display: inline-flex; align-items: center; gap: 6px; }
+.chart-legend .swatch { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+
+.chart-tooltip {
+  position: absolute; z-index: 5; pointer-events: none;
+  background: var(--ink-900); color: var(--white);
+  padding: var(--s-2) var(--s-3); border-radius: var(--r-sm);
+  font-size: var(--t-xs); line-height: 1.5; white-space: nowrap;
+  box-shadow: var(--shadow-md); transform: translate(-50%, -100%);
+  opacity: 0; transition: opacity 90ms ease;
+}
+.chart-tooltip.on { opacity: 1; }
+.chart-tooltip .tt-title { color: var(--ink-400); margin-bottom: 2px; }
+.chart-tooltip .tt-row { display: flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+.chart-tooltip .tt-row .swatch { width: 8px; height: 8px; border-radius: 2px; flex: none; }
+.chart-tooltip .tt-row .tt-value { margin-left: auto; padding-left: var(--s-4); font-weight: 600; }
+
+.chart-empty {
+  display: grid; place-items: center; text-align: center;
+  color: var(--ink-500); font-size: var(--t-base);
+  border: 1px dashed var(--ink-200); border-radius: var(--r-md);
+  padding: var(--s-8) var(--s-6);
+  min-height: 180px;
+}
+.chart-empty span { max-width: 46ch; display: block; }
+.chart-empty strong { display: block; color: var(--ink-700); margin-bottom: 4px; font-weight: 560; }

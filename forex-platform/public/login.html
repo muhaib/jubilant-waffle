@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b2545">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/site.css">
+<title>Sign in — Meridian FX</title>
+<meta name="robots" content="noindex">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="auth-shell">
+  <aside class="auth-aside">
+  <div>
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.5 9 11l4 4 8-9"/><path d="M21 6v5h-5"/></svg>
+      </span>
+      <span data-platform-name>Meridian FX</span>
+    </a>
+  </div>
+  <div>
+    <h2>Every figure on your account can be traced.</h2>
+    <p>
+      Balances here are not a number someone can type over. They are the sum of permanent,
+      referenced ledger entries — so any amount you see can be traced back to the movement
+      that produced it.
+    </p>
+    <ul class="auth-points">
+      <li>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span>Deposits credited only after a person verifies the payment</span>
+      </li>
+      <li>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span>Illustrative figures labelled as examples, never as returns</span>
+      </li>
+      <li>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <span>Withdrawal requests held and reviewed, never silently dropped</span>
+      </li>
+    </ul>
+  </div>
+  <p style="font-size:var(--t-xs);color:#8ea4c4;max-width:44ch;margin:0">
+    Forex trading involves substantial risk and may result in the loss of some or all of your
+    invested capital. Illustrative figures are not guaranteed returns.
+  </p>
+</aside>
+  <main class="auth-main" id="main">
+    <div class="auth-card">
+      <div style="margin-bottom:var(--s-8)"><a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.5 9 11l4 4 8-9"/><path d="M21 6v5h-5"/></svg>
+      </span>
+      <span data-platform-name>Meridian FX</span>
+    </a></div>
+      <h1>Sign in</h1>
+      <p class="sub">Use the email address or mobile number on your account.</p>
+
+      <div class="card">
+        <div class="card-body">
+          <form id="login-form" novalidate>
+            <div class="field">
+              <label class="label" for="identifier">Email or mobile number</label>
+              <input class="input" type="text" id="identifier" name="identifier" autocomplete="username" required autofocus>
+            </div>
+            <div class="field">
+              <label class="label" for="password">Password</label>
+              <input class="input" type="password" id="password" name="password" autocomplete="current-password" required>
+            </div>
+            <div id="form-error" style="display:none;margin-bottom:var(--s-4)"></div>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" id="login-submit">Sign in</button>
+          </form>
+        </div>
+      </div>
+
+      <p class="auth-alt">Do not have an account yet? <a href="/register.html">Open one</a></p>
+      <p class="auth-alt" style="margin-top:var(--s-3);font-size:var(--t-sm)">
+        Locked out or lost access to your number? <a href="#" id="support-link">Contact support</a>.
+      </p>
+    </div>
+  </main>
+</div>
+<script type="module" src="/assets/js/auth.js"></script>
+</body>
+</html>

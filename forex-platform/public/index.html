@@ -1,1 +1,326 @@
-<!doctype html><title>placeholder</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meridian FX — Forex investment accounts</title>
+<meta name="description" content="Open a forex investment account from $30. Verified deposits, a traceable ledger and clearly labelled illustrative figures. Forex trading involves substantial risk to your capital.">
+<meta name="theme-color" content="#0b2545">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 17.5 9 11l4 4 8-9"/><path d="M21 6v5h-5"/>
+        </svg>
+      </span>
+      <span data-platform-name>Meridian FX</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#how-it-works">How it works</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#why">Why us</a>
+      <a href="#risk">Risk</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-ghost" href="/login.html">Sign in</a>
+      <a class="btn btn-primary" href="/register.html">Open an account</a>
+    </div>
+    <button class="nav-toggle" type="button" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-open="false">
+  <div class="container">
+    <a class="mobile-link" href="#how-it-works">How it works</a>
+    <a class="mobile-link" href="#calculator">Calculator</a>
+    <a class="mobile-link" href="#why">Why us</a>
+    <a class="mobile-link" href="#risk">Risk disclosure</a>
+    <a class="btn btn-primary btn-block" href="/register.html">Open an account</a>
+    <a class="btn btn-secondary btn-block" href="/login.html" style="margin-top:8px">Sign in</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============================ Hero ============================ -->
+  <section class="hero">
+    <div class="container">
+      <div>
+        <span class="eyebrow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
+          Verified deposits · Traceable ledger
+        </span>
+        <h1 data-content="heroHeadline">A forex investment account with every figure you can check.</h1>
+        <p class="hero-lead" data-content="heroSubhead">
+          Open an account, fund it, and see exactly what has been verified and what is still
+          pending. Forex trading carries substantial risk, including the loss of your capital.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="/register.html">Start investing</a>
+          <a class="btn btn-secondary btn-lg" href="#how-it-works">How it works</a>
+        </div>
+
+        <p class="hero-risk">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--warn-600)" stroke-width="2" stroke-linecap="round" style="flex:none;margin-top:2px">
+            <path d="M12 9v4M12 17v.5"/><path d="M10.3 3.9 2.4 17.5A2 2 0 0 0 4.1 20.5h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/>
+          </svg>
+          <span>
+            Your capital is at risk. Figures shown on this site are illustrative examples of the
+            platform's calculation model, not guaranteed returns. Only invest what you can afford to lose.
+          </span>
+        </p>
+
+        <div class="hero-facts">
+          <div class="hero-fact">
+            <div class="k num" data-fact="min">$30</div>
+            <div class="v">Minimum</div>
+          </div>
+          <div class="hero-fact">
+            <div class="k num" data-fact="max">$10,000</div>
+            <div class="v">Maximum</div>
+          </div>
+          <div class="hero-fact">
+            <div class="k num" data-fact="cycle">24</div>
+            <div class="v">Market days per example cycle</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The hero visual is the calculator itself: real arithmetic the
+           visitor can operate, rather than a decorative fake trading chart. -->
+      <div class="calc" id="calculator">
+        <div class="calc-head">
+          <h2>Illustrative calculator</h2>
+          <p>See what the platform's example model produces for an amount.</p>
+        </div>
+        <div class="calc-body">
+          <form id="calc-form" novalidate>
+            <div class="amount-input">
+              <span class="cur" aria-hidden="true">$</span>
+              <label class="visually-hidden" for="calc-amount">Investment amount in US dollars</label>
+              <input type="text" inputmode="decimal" id="calc-amount" name="amount" value="30"
+                     autocomplete="off" aria-describedby="calc-error">
+            </div>
+            <p class="error-text" id="calc-error" style="display:none"></p>
+
+            <label class="visually-hidden" for="calc-slider">Adjust investment amount</label>
+            <input class="calc-slider" type="range" id="calc-slider" min="30" max="10000" step="10" value="30">
+            <div class="calc-range">
+              <span class="num" data-fact="min">$30</span>
+              <span class="num" data-fact="max">$10,000</span>
+            </div>
+
+            <div class="calc-presets" id="calc-presets" role="group" aria-label="Preset amounts"></div>
+
+            <div class="calc-out">
+              <div class="box">
+                <div class="k">Example daily amount</div>
+                <div class="v num" id="calc-daily">$1.00</div>
+                <div class="n" id="calc-daily-note">amount ÷ 30</div>
+              </div>
+              <div class="box">
+                <div class="k">Example <span id="calc-days">24</span>-day amount</div>
+                <div class="v num" id="calc-cycle">$24.00</div>
+                <div class="n">across the example cycle</div>
+              </div>
+            </div>
+
+            <p class="hint" id="calc-disclaimer" style="margin-bottom:16px"></p>
+            <a class="btn btn-primary btn-block" href="/register.html">Open an account</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= How it works ========================= -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">How it works</div>
+        <h2>Nine steps from signing up to withdrawing</h2>
+        <p>
+          Nothing is credited automatically. A deposit becomes a balance only after a
+          person on our team has matched it against our receiving account records.
+        </p>
+      </div>
+
+      <div class="steps">
+        <div class="step"><div class="step-n">1</div><div><h4>Create your account</h4><p>Your name, email and mobile number. You are issued an internal account ID such as USR-8F4K29 — never your phone number.</p></div></div>
+        <div class="step"><div class="step-n">2</div><div><h4>Verify your phone number</h4><p>We send a short one-time code that expires quickly and is checked on our servers. Verification is required before you can transact.</p></div></div>
+        <div class="step"><div class="step-n">3</div><div><h4>Choose your amount</h4><p>Anywhere from the minimum to the maximum shown on the calculator. The illustrative figures in force are recorded against your investment.</p></div></div>
+        <div class="step"><div class="step-n">4</div><div><h4>Make the deposit</h4><p>Send the exact amount to the receiving account shown on your deposit page. The account details are set by our administrators, not hard-coded.</p></div></div>
+        <div class="step"><div class="step-n">5</div><div><h4>Submit your proof</h4><p>Enter the transaction ID and attach the confirmation screenshot. Your submission is recorded as a claim, not as money received.</p></div></div>
+        <div class="step"><div class="step-n">6</div><div><h4>We verify the payment</h4><p>Our team matches the reference, the amount and the sending account against our actual receiving records. A screenshot alone is never treated as proof.</p></div></div>
+        <div class="step"><div class="step-n">7</div><div><h4>Your balance is credited</h4><p>Once verified, a permanent ledger entry credits your available balance, with a reference you can trace on your transactions page.</p></div></div>
+        <div class="step"><div class="step-n">8</div><div><h4>Monitor your account</h4><p>Balances, deposits, withdrawals, every ledger movement and every sign-in are visible to you in your dashboard.</p></div></div>
+        <div class="step"><div class="step-n">9</div><div><h4>Request a withdrawal</h4><p>Request from your available balance in the app, or send the request over WhatsApp. The amount is held while our finance team reviews it.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== Illustration table ==================== -->
+  <section class="section tint">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">The calculation model</div>
+        <h2>What the example model produces</h2>
+        <p>
+          The platform applies a fixed arithmetic model chosen by the operator: the daily figure
+          is the amount divided by <strong data-fact="divisor-inline">30</strong>, applied across
+          <strong data-fact="cycle-inline">24</strong> market days. The table below is generated
+          from that model, so it can never drift from the calculator above.
+        </p>
+      </div>
+
+      <div class="illus-table-wrap">
+        <div class="table-wrap">
+          <table class="data stackable" id="illus-table">
+            <thead>
+              <tr>
+                <th scope="col">Investment</th>
+                <th scope="col" class="num">Example daily amount</th>
+                <th scope="col" class="num">Example cycle amount</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="illus-note">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex:none;margin-top:1px">
+            <circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/>
+          </svg>
+          <span id="illus-disclaimer">
+            Illustrative calculation only. These figures are a worked example of the platform's
+            arithmetic model and are not a forecast, a projection of market performance, or a
+            commitment to pay. Actual forex results may be lower, higher, or negative.
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ Why ============================= -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Why this platform</div>
+        <h2>What we actually do differently</h2>
+        <p>Only the capabilities this platform genuinely has. No licences, partnerships or performance history are claimed.</p>
+      </div>
+      <div class="features" id="why-grid"></div>
+    </div>
+  </section>
+
+  <!-- ========================== Support =========================== -->
+  <section class="section tint">
+    <div class="container">
+      <div class="support-band">
+        <div>
+          <h3>Talk to support on WhatsApp</h3>
+          <p>Questions about a deposit, a withdrawal or your verification status — message us and quote your account ID.</p>
+          <p class="hours" id="support-hours">Human agents are available during published hours.</p>
+        </div>
+        <a class="btn btn-whatsapp btn-lg" id="whatsapp-cta" href="#" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.27-1.38a9.86 9.86 0 0 0 4.77 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.65-1.03-5.13-2.9-7A9.82 9.82 0 0 0 12.04 2Zm5.8 14.08c-.25.69-1.43 1.32-1.97 1.37-.53.05-1.02.24-3.44-.72-2.9-1.14-4.75-4.1-4.9-4.3-.14-.19-1.17-1.55-1.17-2.96 0-1.4.74-2.1 1-2.38.25-.29.55-.36.73-.36l.53.01c.17 0 .4-.06.62.48.24.57.8 1.98.87 2.12.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.14-.3.3-.13.59.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.14.46.12.63-.07.17-.2.73-.85.92-1.15.2-.29.39-.24.66-.14.27.09 1.68.79 1.97.94.29.14.48.21.55.33.07.12.07.69-.18 1.36Z"/></svg>
+          Contact support on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= Risk warning ======================= -->
+  <section class="risk-section" id="risk">
+    <div class="container risk-inner">
+      <div>
+        <span class="risk-tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 9v4M12 17v.5"/><path d="M10.3 3.9 2.4 17.5A2 2 0 0 0 4.1 20.5h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+          Forex risk warning
+        </span>
+      </div>
+      <div>
+        <h2>Forex trading involves substantial risk</h2>
+        <p>
+          <strong>Forex trading involves substantial risk and may result in the loss of some or all
+          of your invested capital.</strong> Past performance does not guarantee future results. Any
+          returns, calculations, projections, or examples displayed on this platform are illustrative
+          and are not guaranteed. Only invest funds you can afford to lose.
+        </p>
+        <p>
+          This platform makes no claim of guaranteed profit, fixed income, risk-free returns or
+          protection from loss. It publishes no trading performance and claims no regulatory
+          authorisation, licence or broker relationship it has not been granted. If you are unsure
+          whether this is suitable for you, seek independent financial advice.
+        </p>
+        <div class="risk-links">
+          <a href="/legal.html#risk_disclosure">Risk Disclosure</a>
+          <a href="/legal.html#terms">Terms &amp; Conditions</a>
+          <a href="/legal.html#privacy">Privacy Policy</a>
+          <a href="/legal.html#program_terms">Investment Programme Terms</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <span class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17.5 9 11l4 4 8-9"/><path d="M21 6v5h-5"/></svg>
+          </span>
+          <span data-platform-name>Meridian FX</span>
+        </span>
+        <p class="about">
+          A forex investment account platform. Deposits are credited only after verification
+          against our receiving account records, and every balance is derived from a permanent,
+          traceable ledger.
+        </p>
+      </div>
+      <div>
+        <h5>Platform</h5>
+        <a href="#how-it-works">How it works</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#why">Why us</a>
+      </div>
+      <div>
+        <h5>Account</h5>
+        <a href="/register.html">Open an account</a>
+        <a href="/login.html">Sign in</a>
+        <a href="/app/">Dashboard</a>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <a href="/legal.html#risk_disclosure">Risk Disclosure</a>
+        <a href="/legal.html#terms">Terms &amp; Conditions</a>
+        <a href="/legal.html#privacy">Privacy Policy</a>
+        <a href="/legal.html#program_terms">Programme Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> <span data-platform-name>Meridian FX</span>. Trading forex carries substantial risk of loss.</span>
+      <span id="footer-support"></span>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="/assets/js/site.js"></script>
+</body>
+</html>
