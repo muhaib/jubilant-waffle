@@ -1,0 +1,26 @@
+{
+  "name": "fx-capital-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Forex investment platform: user accounts, deposit verification, withdrawal workflow, ledger-backed balances and a role-based admin console.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "migrate": "node src/db/migrate.js",
+    "seed": "node src/db/seed.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": { "node": ">=20.0.0" },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.3.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "multer": "^2.0.0"
+  },
+  "license": "UNLICENSED"
+}
