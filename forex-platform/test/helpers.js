@@ -64,6 +64,7 @@ class Client {
   post(url, json, opts) { return this.request('POST', url, { json, ...opts }); }
   postForm(url, form) { return this.request('POST', url, { form }); }
   put(url, json) { return this.request('PUT', url, { json }); }
+  patch(url, json) { return this.request('PATCH', url, { json }); }
   del(url) { return this.request('DELETE', url); }
 }
 

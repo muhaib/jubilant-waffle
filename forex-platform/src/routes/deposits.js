@@ -99,8 +99,10 @@ router.post('/',
   requireActiveUser,
   limit({ name: 'deposit:create', max: 10, windowMs: 60 * 60 * 1000, keyBy: (req) => req.user.id,
     message: 'You have submitted several deposits in the last hour. Contact support if you need to add more.' }),
-  upload.single('screenshot'),
+  // CSRF is checked before the multipart body is read, so a forged
+  // cross-site post is rejected without the server parsing an upload.
   sessionMw.requireCsrf,
+  upload.single('screenshot'),
   asyncRoute(async (req, res) => {
     if (!settings.get('deposits_enabled', true)) {
       throw new AppError(503, 'deposits_closed', 'Deposits are temporarily unavailable. Please try again later.');

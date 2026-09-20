@@ -109,8 +109,8 @@ router.get('/kyc', asyncRoute(async (req, res) => {
  */
 router.post('/kyc',
   limit({ name: 'kyc:submit', max: 5, windowMs: 24 * 60 * 60 * 1000, keyBy: (req) => req.user.id }),
-  upload.single('front'),
   sessionMw.requireCsrf,
+  upload.single('front'),
   asyncRoute(async (req, res) => {
     const existing = latestKyc.get(req.user.id);
     if (existing && ['pending', 'under_review', 'approved'].includes(existing.status)) {
@@ -273,7 +273,7 @@ function serveFile(req, res, { isAdmin }) {
 
   res.set({
     'Content-Type': file.mime,
-    'Content-Length': String(file.size_bytes),
+    'Content-Length': String(fs.statSync(absolute).size),
     'Content-Disposition': `inline; filename="evidence-${id}${file.mime === 'image/png' ? '.png' : '.jpg'}"`,
     // Never let a browser guess a different type for user-supplied bytes.
     'X-Content-Type-Options': 'nosniff',

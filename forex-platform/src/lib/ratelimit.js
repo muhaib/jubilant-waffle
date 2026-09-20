@@ -41,4 +41,11 @@ function peek(key) {
 
 function reset(key) { buckets.delete(key); }
 
-module.exports = { consume, peek, reset };
+/**
+ * Drop every counter. Intended for test setup, where the suite drives many
+ * registrations and sign-ins from one address and would otherwise trip the
+ * very limits it is there to verify.
+ */
+function clearAll() { buckets.clear(); }
+
+module.exports = { consume, peek, reset, clearAll };
